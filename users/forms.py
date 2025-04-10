@@ -25,7 +25,7 @@ class UserRegisterForm(StyleFromMixin,forms.ModelForm):
     def clean_password2(self):
         cd = self.cleaned_data
         validate_password(cd['password'])
-        if cd['password'] != cd['password']:
+        if cd['password1'] != cd['password2']:
             print("Пароли не совпадают!!!")
             raise forms.ValidationError("Пароли не совпадают")
         return cd['password2']
